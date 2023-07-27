@@ -12,20 +12,19 @@
 
 
 //average per subject
-//total stuent's average
+//total student's average
 //average for class
 
+
 //Step 1: Define the list of student objects with their properties.
-
-
 const studentsList = [
     //student1:
     {
       fname: "Kate", 
       subjects: [
         { subjectTitle: "math", marks: [8, 9, 10] },
-        { subjectTitle: "chemistry", marks: [8, 9, 10] },
-        { subjectTitle: "biology", marks: [8, 9, 10] },
+        { subjectTitle: "chemistry", marks: [7, 9, 8] },
+        { subjectTitle: "biology", marks: [10, 9, 10] },
          //add here more objects "subject" 
                 ]
       },
