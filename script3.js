@@ -74,6 +74,7 @@ originCountry: {
 
 //Scenario 1 - // Exista o listă de produse. - an array with more objects
 /*
+console.log("List of products stored in the warehouse: ")
 console.log("The warehouse of clothes stores " + clothesWarehouse.length + " items.");
 
 //'learned how to use literals and backticks to display the list of products'
@@ -95,6 +96,7 @@ clothesWarehouse.forEach(item => {
 
 
 //Scenario 2 - Posibilitatea de a suplini stocul produselor.
+// console.log("Arrived product for storage in the warehouse: ")
 /*clothesWarehouse.push({
     name: "shorts",
     category: "babyClothes",
@@ -110,6 +112,7 @@ clothesWarehouse.forEach(item => {
 
 
 //Scenario 3 - Posibilitatea de a lua produse din depozit.
+console.log("Removed last product arrived at the warehouse: ")
 /*clothesWarehouse.pop();
 
 clothesWarehouse.forEach(item => {
@@ -150,12 +153,53 @@ clothesWarehouse
 
 //Scenario 7 - Să se găsească produsul cel mai scump.
 //the spread operator is used to convert the array of prices into separate arguments, allowing the Math.max() function to find the maximum value among those prices. 
-console.log("Most expensive product is: ");
-const mostExpensiveProduct = clothesWarehouse.find((item) => item.price === Math.max(...clothesWarehouse.map((item) => item.price)));
-console.log(mostExpensiveProduct);
+// console.log("Most expensive product is: ");
+// const mostExpensiveProduct = clothesWarehouse.find((item) => item.price === Math.max(...clothesWarehouse.map((item) => item.price)));
+// console.log(mostExpensiveProduct);
 
 //Scenario 8 - Să se găsească produsul cel mai ieftin.
-console.log("Cheapest product is: ");
-const cheapestProduct = clothesWarehouse.find((item) => item.price === Math.min(...clothesWarehouse.map((item) => item.price)));
-console.log(cheapestProduct);
+// console.log("Cheapest product is: ");
+// const cheapestProduct = clothesWarehouse.find((item) => item.price === Math.min(...clothesWarehouse.map((item) => item.price)));
+// console.log(cheapestProduct);
+
 //Scenario 9 - Să se găsească produsele cu prețul între 600 și 1000.
+// console.log("Product with price between 600 and 1000: ");
+// const filteredProducts = clothesWarehouse.filter((item) => (item.price >= 600 && item.price <= 1000));
+// console.log(filteredProducts);
+
+
+// Sceanrio 6 - Posibilitatea de a returna produsele la depozit.
+//I will make an analogy of trash bin from the computer, where you can delete items and then to restore them back.
+
+//select item to be removed from the warehouse
+let targetRemoveItem = "coat";
+// targetRemoveItem = define here the product to be removed
+
+//define the position of the item to be restored
+const removeIndex = clothesWarehouse.findIndex((item) => item.name === targetRemoveItem);
+
+//use the abive position in splice function to remove specific product
+const removedProduct = clothesWarehouse.splice(removeIndex, 1);
+
+
+const bin = [];//create a bin, which will include removed products from the warehouse
+bin.push(removedProduct);//add removed products to bin
+console.log("Content of bin:");
+console.log(bin);
+
+let targetRestoreItem ="coat";//define product which you want to restore
+// targetRestoreItem = define here the product to be restored
+const restoreIndex = bin.findIndex((item) => item.name === targetRestoreItem);//find index of the product to be restored
+
+const restoredProduct = bin.splice(restoreIndex, 1);//remove product from bin
+
+
+//create a list of restored products
+const restoredList = [];
+restoredList.push(restoredProduct[0]);
+console.log("List of restored items:");
+console.log(restoredList);
+
+//returned restored products to the clothesWarehouse
+const warehouseRestored = [...clothesWarehouse, ...restoredList];
+console.log(warehouseRestored);
