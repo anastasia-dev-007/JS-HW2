@@ -92,3 +92,44 @@ clothesWarehouse.forEach(item => {
 });
 
 */
+
+
+//Scenario 2 - Posibilitatea de a suplini stocul produselor.
+/*clothesWarehouse.push({
+    name: "shorts",
+    category: "babyClothes",
+price: 50,
+originCountry: {
+    name: "Romania",
+    code: "RO"
+}});
+
+clothesWarehouse.forEach(item => {
+    console.log(`Product Name: ${item.name}`);
+});
+
+
+//Scenario 3 - Posibilitatea de a lua produse din depozit.
+/*clothesWarehouse.pop();
+
+clothesWarehouse.forEach(item => {
+console.log(`Name: ${item.name}`);
+});*/
+
+
+
+//Scenario 4 - De grupat produsele după categorie.
+/*console.log("Clothes for Women:");
+clothesWarehouse
+.filter((item) => item.category === "womenClothes")
+.forEach((item) => console.log(item.name));
+
+console.log("Clothes for Men:");
+clothesWarehouse
+.filter((item) => item.category === "menClothes")
+.forEach((item) => console.log(item.name));
+
+console.log("Clothes for Babies:");
+clothesWarehouse
+.filter((item) => item.category === "babyClothes")
+.forEach((item) => console.log(item.name));*/
