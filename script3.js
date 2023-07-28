@@ -10,7 +10,7 @@
 // Posibilitatea de a suplini stocul produselor.
 // Posibilitatea de a lua produse din depozit.
 // De grupat produsele după categorie.
-// Posibilitatea de a returna produsele la depozit.
+// ?????Posibilitatea de a returna produsele la depozit.
 // De grupat produsele după țara de origine.
 // Să se găsească produsul cel mai scump.
 // Să se găsească produsul cel mai ieftin.
@@ -43,8 +43,8 @@ originCountry: {
     category: "menClothes",
 price: 300,
 originCountry: {
-    name: "Turkey",
-    code: "TR"
+    name: "Italy",
+    code: "IT"
 },
 //add more properties if necessary
 },
@@ -63,8 +63,8 @@ originCountry: {
     category: "babyClothes",
 price: 100,
 originCountry: {
-    name: "China",
-    code: "CH"
+    name: "France",
+    code: "FR"
 },
 //add more properties if necessary
 },
@@ -133,3 +133,20 @@ console.log("Clothes for Babies:");
 clothesWarehouse
 .filter((item) => item.category === "babyClothes")
 .forEach((item) => console.log(item.name));*/
+
+
+//Scenario 6 - De grupat produsele după țara de origine.
+
+console.log("Clothes made in Italy: ")
+clothesWarehouse
+.filter((item) => item.originCountry.name === "Italy")
+.forEach((item) => console.log(item.name));
+
+console.log("Clothes made in France: ")
+clothesWarehouse
+.filter((item) => item.originCountry.name === "France")
+.forEach((item) => console.log(item.name));
+
+// Să se găsească produsul cel mai scump.
+// Să se găsească produsul cel mai ieftin.
+// Să se găsească produsele cu prețul între 600 și 1000.
