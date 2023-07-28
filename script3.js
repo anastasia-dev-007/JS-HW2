@@ -136,7 +136,7 @@ clothesWarehouse
 
 
 //Scenario 6 - De grupat produsele după țara de origine.
-
+/*
 console.log("Clothes made in Italy: ")
 clothesWarehouse
 .filter((item) => item.originCountry.name === "Italy")
@@ -146,7 +146,16 @@ console.log("Clothes made in France: ")
 clothesWarehouse
 .filter((item) => item.originCountry.name === "France")
 .forEach((item) => console.log(item.name));
+*/
 
-// Să se găsească produsul cel mai scump.
-// Să se găsească produsul cel mai ieftin.
-// Să se găsească produsele cu prețul între 600 și 1000.
+//Scenario 7 - Să se găsească produsul cel mai scump.
+//the spread operator is used to convert the array of prices into separate arguments, allowing the Math.max() function to find the maximum value among those prices. 
+console.log("Most expensive product is: ");
+const mostExpensiveProduct = clothesWarehouse.find((item) => item.price === Math.max(...clothesWarehouse.map((item) => item.price)));
+console.log(mostExpensiveProduct);
+
+//Scenario 8 - Să se găsească produsul cel mai ieftin.
+console.log("Cheapest product is: ");
+const cheapestProduct = clothesWarehouse.find((item) => item.price === Math.min(...clothesWarehouse.map((item) => item.price)));
+console.log(cheapestProduct);
+//Scenario 9 - Să se găsească produsele cu prețul între 600 și 1000.
