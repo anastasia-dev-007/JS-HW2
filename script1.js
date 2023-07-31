@@ -1,20 +1,5 @@
 // Se dă un array cu numere. Scrie un algoritm care va elimina duplicatele din acest array.
 
-// const numbers = new Set();
-
-
-// numbers.add(15);
-// numbers.add(20);
-// numbers.add(15);
-// numbers.add(20);
-// numbers.add(15);
-// numbers.add(20);
-
-// console.log(numbers);
-
-
-// After feedback:
-
 const numbers = [12, 2, 2, 122, 12, 2, 3, 4, 3, 4, 4, 5, 6, 6];//defined a const "numbers" and attributed to it an array
 
 //create a function which removes dublicates
