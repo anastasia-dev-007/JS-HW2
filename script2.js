@@ -50,29 +50,17 @@ const students = [
 
 // Step 2: Calculate the average marks for each subject
 const calcAveragePerSubject = (students) => {
-  /*
-  1.parcurgem fiecare obiect din array (for.Each/ for of/while/do while...)
-  2. pentru fiecare student vom parcurge fiecare obiect din student.subjects. Acum vom avea acces la " { title: "math", marks: [10, 9, 10] }"
-  3. pentru acest obiect calculam media generala:
-  (subject) -> com calcula media si vom adauga o noua proprietate:averageMark: a number
-   */
-
-  const averagePerSubject = (marks) => {
-    let sum = 0;
-    marks.forEach((mark) => {
-      sum += mark;
-    });
-    return sum / marks.length;
-  }
-
-  students.forEach((student) => {
-    student.subjects.forEach((subject) => {
-      const average = averagePerSubject(subject.marks);
-      subject.averageMark = average;
+  students.forEach(student => {
+    student.subjects.forEach(subject => {
+      let sum = 0;
+      subject.marks.forEach(mark => sum += mark)
+      subject.averageMark = sum / subject.marks.length;
     });
   });
-  return students;
 }
+
+calcAveragePerSubject(students);
+console.table(students);
 
 const averageMarksPerSubject = calcAveragePerSubject(students);
 console.log(JSON.stringify(averageMarksPerSubject, null, 2)); //Node.js cannot display the nested objects directly, so I used help of chatGPT
@@ -82,34 +70,18 @@ console.log(JSON.stringify(averageMarksPerSubject, null, 2)); //Node.js cannot d
 // Step 3: Calculate the average marks for each student
 
 const calcAveragePerStudent = (students) => {
-  /*
-1.parcurgem fiecare obiect din array (for.Each/ for of/while/do while...)
-2. pentru fiecare student vom calcula media la toate obiectele (parcurgem fiecare subject, facem o suma din averageMark)
-pentru obiectul nstru vom adauga o noua proprietate: averageMarh: suma/ student.subjects.length
-let sum = 0;
-student.subjects.forEach(subject => sum += subject.averageMark)
-
-3. pentru subiectul nostru vom adauga o npua proprietate: averageMark: sum / student.subjects.length
- */
-const averagePerStudent = (averageMarks) => {
-  let sum = 0;
-averageMarks.forEach((averageMark) => {
-  sum += averageMark;
-});
-return sum / averageMarks.length;
+  students.forEach(student => {
+    let sum = 0;
+    student.subjects.forEach(subject => sum += subject.averageMark);
+    student.finalMark = sum / student.subjects.length;
+  });
 };
 
-students.forEach((student) => {
-  const averageMarks = student.subjects.map((subject) => subject.averageMark);
-  const average = averagePerStudent(averageMarks);
-  student.finalMark = average;
-});
-
-return students;
-};
+calcAveragePerStudent(students);
+console.log(JSON.stringify(students, null, 2))
 
 const averageMarksPerStudent = calcAveragePerStudent(students);
-console.log(JSON.stringify(averageMarksPerStudent, null, 2));
+// console.log(JSON.stringify(averageMarksPerStudent, null, 2));
 
 
 
@@ -117,24 +89,26 @@ console.log(JSON.stringify(averageMarksPerStudent, null, 2));
 
 // Step 4: Calculate the class average
 
-  /*
-  1.parcurgem fiecare obiect din array (for.Each/ for of/while/do while...)
-  2. pentru fiecare student vom face o suma din student.averageMark
-  3. vom returna averageMark / students.length
+/*
+1.parcurgem fiecare obiect din array (for.Each/ for of/while/do while...)
+2. pentru fiecare student vom face o suma din student.averageMark
+3. vom returna averageMark / students.length
 
 
-  let sum = 0;
+let sum = 0;
 student.forEach(student) => average += student.averageMark)
 return average / students/length;
-    */
+  */
 
-  // return average;
+// return average;
 
-  const calcClassAverage = (students) => {
-    const allAverageMarks = students.map((student) => student.finalMark);
-    const classAverage = allAverageMarks.reduce((sum, mark) => sum + mark, 0) / allAverageMarks.length;
-    return classAverage;
-  };
-  
-  const classAverage = calcClassAverage(students);
-  console.log("Class Average:", classAverage);
+const calcClassAverage = (students) => {
+  let sum = 0;
+  students.forEach(student => sum += student.finalMark);
+//OR
+//const sum = students.reduce((sum, student) => sum += student.finalMark, 0);
+  return sum / students.length;
+};
+
+const classAverage = calcClassAverage(students);
+console.log("Class Average:", classAverage);

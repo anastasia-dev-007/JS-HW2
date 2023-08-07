@@ -28,3 +28,20 @@ function removeDuplicates2(numbers) {
 
 //display the result:
 console.log(removeDuplicates2());
+
+
+
+//AFTER FEEDBACK2
+
+const bancnote = [1, 1, 1, 5, 5, 20, 20, 500, 500, 500, 500, 500];
+
+const palmaStanga = [];
+
+bancnote.forEach(bancnotaDinPalmaDreapta => {
+    if (!palmaStanga.includes(bancnotaDinPalmaDreapta)) {
+        palmaStanga.push(bancnotaDinPalmaDreapta);
+    }
+});
+
+console.log(bancnote);
+console.log(palmaStanga);
